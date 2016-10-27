@@ -1,0 +1,42 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    .navbar {
+        border-radius: 0;
+    }
+    </style>
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/requirejs/require.js" data-main="app/main.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" ng-href="#/home">WalletHub</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a ng-class="{active: currentState.match('^home')}" ui-sref="page({ page: 'home' })">Home</a></li>
+            <li><a ng-class="{active: currentState.match('^about')}" ui-sref="page({ page: 'about'})">About</a></li>
+            <li><a ng-class="{active: currentState.match('^contacts')}" ui-sref="page({ page: 'contacts'})">Contacts</a></li>
+        </ul>
+    </nav>
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+        <main ui-view></main>
+    </div>
+</body>
+
+</html>

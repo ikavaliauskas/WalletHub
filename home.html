@@ -1,0 +1,62 @@
+<div ng-controller="homeController" class="jumbotron text-center">
+    <h1>{{home}}</h1>
+    <p>Let's share with about page:
+        <input ng-model="homeData.value" type="text" />
+    </p>
+</div>
+<p>Phone Number:
+    <input phone-number placeholder="phone number" name='numValue' ng-model="numValue">
+</p>
+<p>Currency:
+    <input type="text" ng-model="number" price>
+</p>
+<div ng-controller="sumController">
+    <input type="number" ng-model="a" ng-init="a=100" ng-keyup="addNumbers()">
+    <input type="number" ng-model="b" ng-init="b=100" ng-keyup="addNumbers()">
+    <input type="number" ng-model="c" ng-init="c=100" ng-keyup="addNumbers()">
+    <input type="number" ng-model="d" ng-init="d = a + b + c" ng-keyup="spreadValue()">
+</div>
+<br />
+<div>
+    <input type="text" id="input1" name="input1" tabindex="1" maxlength="5" move-focus placeholder="Input 1">
+    <input type="text" id="input2" name="input2" tabindex="2" maxlength="5" move-focus placeholder="Input 2">
+    <input type="text" id="input3" name="input3" tabindex="3" maxlength="5" move-focus placeholder="Input 3">
+    <br />
+</div>
+<br />
+<div ng-controller="employeesController">
+    <div class="alert alert-info">
+        <p>Sort Type: {{ sortType }}</p>
+        <p>Search Query: {{ searchFilter }}</p>
+    </div>
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                <input type="text" class="form-control" placeholder="Search employee..." ng-model="searchFilter">
+            </div>
+        </div>
+    </form>
+    <h2>Employees table</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>
+                    <a href="javascript:void(0)" ng-click="sortType = 'name'">Name</a>
+                </th>
+                <th>
+                    <a href="javascript:void(0)" ng-click="sortType = 'salary'">Salary</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in employees | orderBy:sortType:sortReverse | filter:searchFilter">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ui-view></div>
