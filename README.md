@@ -1,4 +1,4 @@
-# WalletHub - Ivan Kavaliauskas
+# WalletHub AngularJS Test- Ivan Kavaliauskas
 
 **Setup Local Server**
 
